@@ -1,0 +1,13 @@
+list:
+  - class_name: pytorch_lightning.callbacks.EarlyStopping
+    params:
+      monitor: val_roc
+      patience: 8
+      mode: max
+  - class_name: pytorch_lightning.callbacks.ModelCheckpoint
+    params:
+      dirpath: /workspace/experiment/gru_all_imgs/
+      monitor: val_roc
+  - class_name: pytorch_lightning.callbacks.LearningRateMonitor
+    params:
+      logging_interval: epoch

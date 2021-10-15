@@ -1,0 +1,5 @@
+class_name: tumor.model.unet3d.UNet3D
+params:
+  in_channels: 1
+  n_classes: 1
+  base_n_filter: 2

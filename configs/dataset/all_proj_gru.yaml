@@ -1,0 +1,17 @@
+class_name: tumor.dataset.channel_dataset.ChannelBrainData
+train:
+  params:
+    data_paths:
+      - /workspace/data/tw1
+      - /workspace/data/tw2
+      - /workspace/data/t1wce_png
+    df: /workspace/data/flair_png/train_0.csv
+    num_ex: 15
+val:
+  params:
+    data_paths:
+      - /workspace/data/tw1
+      - /workspace/data/tw2
+      - /workspace/data/t1wce_png
+    df: /workspace/data/flair_png/val_0.csv
+    num_ex: 15

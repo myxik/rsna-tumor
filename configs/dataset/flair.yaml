@@ -1,0 +1,13 @@
+class_name: tumor.dataset.base_dataset.BrainData
+train:
+  params:
+    data_path: /workspace/data/flair_png
+    df: /workspace/data/flair_png/train_0.csv
+    num_ex: 15
+    color_code: 6
+val:
+  params:
+    data_path: /workspace/data/flair_png
+    df: /workspace/data/flair_png/val_0.csv
+    num_ex: 15
+    color_code: 6

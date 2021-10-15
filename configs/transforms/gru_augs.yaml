@@ -1,0 +1,119 @@
+__version__: 1.1.0
+transform:
+  __class_fullname__: Compose
+  additional_targets: {}
+  bbox_params: null
+  keypoint_params: null
+  p: 1.0
+  transforms:
+  - __class_fullname__: RandomRotate90
+    always_apply: false
+    p: 0.5
+  - __class_fullname__: Flip
+    always_apply: false
+    p: 0.5
+  - __class_fullname__: Transpose
+    always_apply: false
+    p: 0.5
+  - __class_fullname__: OneOf
+    p: 0.2
+    transforms:
+    - __class_fullname__: GaussNoise
+      always_apply: false
+      mean: 0
+      p: 0.5
+      per_channel: true
+      var_limit:
+      - 10.0
+      - 50.0
+  - __class_fullname__: OneOf
+    p: 0.2
+    transforms:
+    - __class_fullname__: MotionBlur
+      always_apply: false
+      blur_limit:
+      - 3
+      - 7
+      p: 0.2
+    - __class_fullname__: MedianBlur
+      always_apply: false
+      blur_limit: &id001
+      - 3
+      - 3
+      p: 0.1
+    - __class_fullname__: Blur
+      always_apply: false
+      blur_limit: *id001
+      p: 0.1
+  - __class_fullname__: ShiftScaleRotate
+    always_apply: false
+    border_mode: 4
+    interpolation: 1
+    mask_value: null
+    p: 0.2
+    rotate_limit:
+    - -45
+    - 45
+    scale_limit:
+    - -0.19999999999999996
+    - 0.19999999999999996
+    shift_limit_x: &id002
+    - -0.0625
+    - 0.0625
+    shift_limit_y: *id002
+    value: null
+  - __class_fullname__: OneOf
+    p: 0.2
+    transforms:
+    - __class_fullname__: OpticalDistortion
+      always_apply: false
+      border_mode: 4
+      distort_limit: &id003
+      - -0.05
+      - 0.05
+      interpolation: 1
+      mask_value: null
+      p: 0.3
+      shift_limit: *id003
+      value: null
+    - __class_fullname__: GridDistortion
+      always_apply: false
+      border_mode: 4
+      distort_limit:
+      - -0.3
+      - 0.3
+      interpolation: 1
+      mask_value: null
+      num_steps: 5
+      p: 0.1
+      value: null
+  - __class_fullname__: OneOf
+    p: 0.3
+    transforms:
+    - __class_fullname__: CLAHE
+      always_apply: false
+      clip_limit:
+      - 1
+      - 2
+      p: 0.5
+      tile_grid_size:
+      - 8
+      - 8
+    - __class_fullname__: RandomBrightnessContrast
+      always_apply: false
+      brightness_by_max: true
+      brightness_limit: &id004
+      - -0.2
+      - 0.2
+      contrast_limit: *id004
+      p: 0.5
+  - __class_fullname__: Resize
+    always_apply: false
+    height: 300
+    interpolation: 1
+    p: 1.0
+    width: 300
+  - __class_fullname__: ToTensorV2
+    always_apply: true
+    p: 1.0
+    transpose_mask: false

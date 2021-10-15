@@ -1,0 +1,22 @@
+defaults:
+  - data_prep: tw1
+  - dataset: tw1
+  - callbacks: basic_callbacks
+  - dataloader: basic
+  - logger: tensorboard
+  - metrics: auroc
+  - model: unet
+  - optimizer: adam
+  - scheduler: reduce
+
+general:
+  criterion: torch.nn.BCEWithLogitsLoss
+  train_transforms: /workspace/configs/transforms/augs.yaml
+  test_transforms: /workspace/configs/transforms/test_augs.yaml
+  criterion_params:
+    reduction: mean
+  gpu_count: 1
+  max_epochs: 50
+  experiment_name: unet
+  version: tw1
+  trainer: tumor.trainer.Lit

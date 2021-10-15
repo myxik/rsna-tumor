@@ -1,0 +1,13 @@
+class_name: tumor.dataset.base_dataset.BrainData
+train:
+  params:
+    data_path: /workspace/data/t1wce_png
+    df: /workspace/data/t1wce_png/train_0.csv
+    num_ex: 19
+    color_code: 6
+val:
+  params:
+    data_path: /workspace/data/t1wce_png
+    df: /workspace/data/t1wce_png/val_0.csv
+    num_ex: 19
+    color_code: 6

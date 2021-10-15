@@ -1,0 +1,11 @@
+class_name: torch.utils.data.DataLoader
+train:
+  params:
+    batch_size: 3
+    pin_memory: true
+    num_workers: 0
+val:
+  params:
+    batch_size: 3
+    pin_memory: true
+    num_workers: 0

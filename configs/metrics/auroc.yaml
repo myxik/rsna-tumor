@@ -1,0 +1,7 @@
+list:
+  - class_name: tumor.metrics.auroc.ROCAUC
+    params:
+      name: train_roc
+  - class_name: tumor.metrics.auroc.ROCAUC
+    params:
+      name: val_roc

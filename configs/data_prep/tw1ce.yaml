@@ -1,0 +1,9 @@
+save_path: /workspace/data/t1wce_png
+data_path: /workspace/data/train
+projections: ["T1wCE"]
+img_size: [512, 512]
+voi_lut: true
+base_df: /workspace/data/train_labels.csv
+split: cross-validation
+split_params:
+  n_folds: 5

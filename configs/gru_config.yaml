@@ -1,0 +1,22 @@
+defaults:
+  - data_prep: flair
+  - dataset: all_proj_gru
+  - callbacks: basic_callbacks
+  - dataloader: gru_loader
+  - logger: tensorboard
+  - metrics: auroc
+  - model: gru
+  - optimizer: adam
+  - scheduler: reduce
+
+general:
+  criterion: torch.nn.BCEWithLogitsLoss
+  train_transforms: /workspace/configs/transforms/gru_augs.yaml
+  test_transforms: /workspace/configs/transforms/gru_test_augs.yaml
+  criterion_params:
+    reduction: mean
+  gpu_count: 1
+  max_epochs: 30
+  experiment_name: gru
+  version: channelmix_all_imgs
+  trainer: tumor.gru_trainer.GRULit
